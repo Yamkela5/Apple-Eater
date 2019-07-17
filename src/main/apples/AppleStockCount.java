@@ -15,20 +15,34 @@ public class AppleStockCount {
       return;
     }
 
-    double cost =  4.50;;
+    double cost = Double.parseDouble(apples[1]);
 
     double total;
     int dozen = 0;
-    total = qty * cost;
 
-    StringBuilder message = new StringBuilder();
-    message.append("You have bought ");
+    if (qty < 1) {
+      System.out.println("Out of stock.");
+    }
+    else {
+
+      total = qty * cost;
+
+      if ( (qty % 12) == 0)  {
+
+        dozen = qty / 12;
+
+      }
+
+
+
+      StringBuilder message = new StringBuilder();
+      message.append("You have bought ");
 
       if(dozen < 1){
         message.append(qty);
 
         message.append(" of");
-        message.append(" apples");
+        message.append(" apple");
         if (qty > 1) {
           message.append("s");
         }
@@ -54,10 +68,13 @@ public class AppleStockCount {
         message.append(".");
 
       }
+
       System.out.println(message.toString());
 
     }
 
 
   }
+}
+
 
